@@ -262,6 +262,12 @@ module OmniAuth
       def has_scope?(scope)
         access_token['scope'].to_s.include?(scope.to_s)
       end
+      
+      private
+
+      def callback_url
+        full_host + script_name + callback_path
+      end
     end
   end
 end
